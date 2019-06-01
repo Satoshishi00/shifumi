@@ -1,0 +1,30 @@
+button {
+    outline-style: none;
+}
+
+.btn-shifumi {
+    background-color: blue;
+    color: white;
+    height: 40px;
+    width: 70px;
+    border-radius: 6px;
+}
+
+.btn-shifumi:hover {
+    cursor: pointer;
+    background-color: white;
+    color: blue;
+    transition-duration: 0.4s;
+}
+
+.hand-container {
+    display: flex;
+}
+
+.main {
+    height: 400px;
+    width: 400px;
+    border: black;
+    background-color: purple;
+    margin: 10px;
+}

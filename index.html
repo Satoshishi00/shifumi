@@ -7,26 +7,68 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pierre feuille Ciseaux</title>
     <link href="styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 </head>
 
 <body>
-    <div class="hand-container">
-        <div class="main main-joueur">
-            <button class="btn-shifumi">Pierre</button>
-            <button class="btn-shifumi">Feuille</button>
-            <button class="btn-shifumi">Ciseaux</button>
+
+    <div class="big-container">
+        <header>
+            <h1>Shifumi</h1>
+            <i class="far fa-hand-rock fa-2x"></i>
+            <i class="far fa-hand-paper fa-2x"></i>
+            <i class="far fa-hand-scissors fa-2x"></i>
+        </header>
+
+        <div class="resultat">
         </div>
 
-        <div class="main main-robot">
-            <p>test</p>
+        <div class="hand-container">
+
+            <div class="hand">
+                <div class="hand-joueur">
+
+                </div>
+                <h2>Joueur</h2>
+                <button class="btn-shifumi">Pierre</button>
+                <button class="btn-shifumi">Feuille</button>
+                <button class="btn-shifumi">Ciseaux</button>
+            </div>
+
+            <div class="hand">
+                <div class="hand-robot"></div>
+                <h2>Robot</h2>
+            </div>
         </div>
     </div>
 
 
-    <div class="resultat">Test</div>
+
+
 
     <script>
         const buttons = document.querySelectorAll("button");
+
+        function displayImage(joueur, joueur_name) {
+            let nod = document.createElement("i");
+            document.body.querySelector(`.hand-${joueur_name}`).innerHTML = '';
+            document.body.querySelector(`.hand-${joueur_name}`).insertAdjacentElement('beforeend', nod);
+            console.log(joueur);
+            switch (joueur) {
+                case "Pierre":
+                    nod.className = '' + 'far fa-hand-rock fa-7x';
+                    break;
+                case "Feuille":
+                    nod.className = '' + 'far fa-hand-paper fa-7x';
+                    break;
+                case "Ciseaux":
+                    nod.className = '' + 'far fa-hand-scissors fa-7x';
+                    break;
+                default:
+                    console.log("Ca fonctionne pas...")
+            }
+        }
 
         for (let i = 0; i < buttons.length; i++) {
             buttons[i].addEventListener("click", function () {
@@ -42,12 +84,23 @@
                     resultat = "Perdu";
                 }
 
-                document.querySelector(".resultat").innerHTML = `
-                    Joueur : ${joueur} </br>
-                    Robot : ${robot} </br>
-                    ${resultat}
-                `
 
+                document.querySelector(".resultat").innerHTML = `${resultat}`;
+                //couleur en fonction du résultat
+                switch (resultat) {
+                    case "Gagné":
+                        document.querySelector(".resultat").className = 'resultat green';
+                        break;
+                    case "Perdu":
+                        document.querySelector(".resultat").className = 'resultat red';
+                        break;
+                    default:
+                        document.querySelector(".resultat").className = 'resultat grey';
+
+                }
+
+                displayImage(joueur, 'joueur');
+                displayImage(robot, 'robot');
             })
         }
     </script>

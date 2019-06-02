@@ -1,3 +1,24 @@
+.big-container {
+    /* background-color: aqua; */
+    width: 600px;
+}
+
+header {
+    text-align: center;
+}
+
+h1 {
+    margin: 0px;
+}
+
+.resultat {
+    height: 50px;
+    text-align: center;
+    font-size: 3rem;
+    color: yellow;
+    padding: 10px;
+}
+
 button {
     outline-style: none;
 }
@@ -21,10 +42,34 @@ button {
     display: flex;
 }
 
-.main {
-    height: 400px;
+.hand {
+    height: 250px;
     width: 400px;
-    border: black;
-    background-color: purple;
+    /* background-color: purple; */
     margin: 10px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.hand-joueur {
+    height: 100px;
+    padding: 20px;
+}
+
+.hand-robot {
+    height: 100px;
+    padding: 20px;
+}
+
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
+}
+
+.grey {
+    color: grey;
 }
